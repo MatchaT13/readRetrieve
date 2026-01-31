@@ -21,7 +21,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        List<String> titles = readTitles("4020a1-datasets");
+        List<String> titles = readTitles("4020a1-datasets.xml");
         for(String t : titles) {
             System.out.println(t);
         }
