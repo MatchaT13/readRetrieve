@@ -43,7 +43,8 @@ public class Main {
         // 3. Open connection: using YorkU email address, to verify that we are not spamming PubMed for the requests we make. Also, added a 10 second time out to let the program pass when stuck.
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
-        conn.setRequestProperty("User-Agent", "ITEC4020-Assignment/1.0 (brian13@my.yorku.ca)");
+        // Add your own email
+        conn.setRequestProperty("User-Agent", "ITEC4020-Assignment/1.0 (Add your own email)");
         conn.setConnectTimeout(10000); // 10 seconds
         conn.setReadTimeout(10000);
 
