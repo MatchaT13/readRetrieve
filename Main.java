@@ -21,6 +21,7 @@ public class Main {
         }
         return titles;
     }
+    
     public static List<String> getPMIDsFromPubMed(String title) throws Exception {
 
         List<String> pmids = new ArrayList<>();
@@ -33,14 +34,15 @@ public class Main {
             "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
             + "?db=pubmed"
             + "&term=" + encodedTitle
-            + "&retmode=xml";
+            + "&retmode=xml"
+            + "&retmax=1";
 
         URL url = new URL(urlString);
 
         // 3. Open connection: using YorkU email address, to verify that we are not spamming PubMed for the requests we make. Also, added a 10 second time out to let the program pass when stuck.
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
-        conn.setRequestProperty("User-Agent", "ITEC4020-Assignment/1.0 (bahare@my.yorku.ca)");
+        conn.setRequestProperty("User-Agent", "ITEC4020-Assignment/1.0 (brian13@my.yorku.ca)");
         conn.setConnectTimeout(10000); // 10 seconds
         conn.setReadTimeout(10000);
 
@@ -89,7 +91,7 @@ public class Main {
         		for (String id : pmids) {
                     results.add(new PubMedData(id, t));
                 }
-        		Thread.sleep(1000);
+        		Thread.sleep(500);
         	} catch (Exception e){
         		System.out.println("SKIPPED ITEM!"+counter+"due to error: "+e.getClass().getSimpleName());
         		Thread.sleep(2000);
