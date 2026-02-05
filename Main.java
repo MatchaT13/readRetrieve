@@ -100,6 +100,6 @@ public class Main {
         }
         
         
-        writeResultsToXML(results,"group6_result.xml");
+        writeResultsToXML(results,"group3_result.xml");
     }
 }
