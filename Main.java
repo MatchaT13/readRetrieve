@@ -35,7 +35,8 @@ public class Main {
             + "?db=pubmed"
             + "&term=" + encodedTitle
             + "&retmode=xml"
-            + "&retmax=1";
+            + "&retmax=1"
+            + "&api_key=2c8cc4bf9d613680e142a2a2870562f24308";
 
         URL url = new URL(urlString);
 
@@ -92,10 +93,10 @@ public class Main {
         		for (String id : pmids) {
                     results.add(new PubMedData(id, t));
                 }
-        		Thread.sleep(500);
+        		Thread.sleep(100);
         	} catch (Exception e){
         		System.out.println("SKIPPED ITEM!"+counter+"due to error: "+e.getClass().getSimpleName());
-        		Thread.sleep(2000);
+        		Thread.sleep(500);
         	}
             System.out.println(t);
         }
