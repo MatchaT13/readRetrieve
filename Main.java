@@ -66,6 +66,7 @@ public class Main {
     }
     public static void writeResultsToXML(List<PubMedData> results, String fileName) throws Exception{
     	PrintWriter writer= new PrintWriter(new FileWriter(fileName));
+        writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
     	writer.println("<PubmedArticleSet>");
     	for(PubMedData entry:results) {
     		writer.println("<PubmedArticle>");
